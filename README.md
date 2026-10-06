@@ -46,6 +46,22 @@ pnpm format
 pnpm format:check
 ```
 
+## Publicar no GitHub Pages
+
+O workflow `.github/workflows/deploy-pages.yml` instala as dependências, executa
+`pnpm build` e publica somente o conteúdo de `dist/`. A pasta continua no
+`.gitignore`; não é necessário versionar os arquivos compilados.
+
+1. No repositório do GitHub, abra **Settings → Pages**.
+2. Em **Build and deployment → Source**, selecione **GitHub Actions**.
+3. Envie o workflow para a branch `main`. Cada push nessa branch gera uma nova
+   publicação. Também é possível executá-lo em **Actions → Deploy to GitHub Pages
+   → Run workflow**.
+
+O site fica disponível em `https://pasoldne.github.io/vyrgarage/` após a conclusão
+do workflow. A configuração `base: "./"` do Vite mantém os arquivos compilados
+acessíveis nessa subpasta.
+
 ## Organização
 
 | Caminho               | Responsabilidade                                                 |
